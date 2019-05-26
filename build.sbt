@@ -20,7 +20,7 @@ lazy val renaissanceHarness = RootProject(uri("renaissance-harness"))
 val benchmarkProjects = for {
   // Hint: add .filter(_ == "group") to compile with selected group only
   // (can significantly speed-up compilation/assembly when debugging harness).
-  dir <- file("benchmarks").list()
+  dir <- file("benchmarks").list().filter(_ == "jdk-streams")
   if dir != null && file("benchmarks/" + dir + "/build.sbt").exists()
 } yield {
   RootProject(uri("benchmarks/" + dir))

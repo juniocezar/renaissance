@@ -4,6 +4,9 @@ import org.renaissance.Config
 import org.renaissance.License
 import org.renaissance.RenaissanceBenchmark
 import org.renaissance.Benchmark._
+import org.renaissance.BenchmarkResult
+import org.renaissance.DummyResult
+import scala.collection.JavaConverters
 
 @Name("mnemonics")
 @Group("jdk-streams")
@@ -63,8 +66,12 @@ class Mnemonics extends RenaissanceBenchmark {
     )
   }
 
-  override def runIteration(c: Config): Unit = {
+  override def runIteration(c: Config): BenchmarkResult = {
     val stringSet = coder.translate(testInput)
+    for (x <- JavaConverters.asScalaSet(stringSet)) {
+      println(x)
+    }
     blackHole(stringSet)
+    return new DummyResult()
   }
 }

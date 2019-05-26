@@ -4,6 +4,8 @@ import org.renaissance.Config
 import org.renaissance.License
 import org.renaissance.RenaissanceBenchmark
 import org.renaissance.Benchmark._
+import org.renaissance.BenchmarkResult
+import org.renaissance.DummyResult
 
 @Name("par-mnemonics")
 @Group("jdk-streams")
@@ -63,7 +65,8 @@ class ParMnemonics extends RenaissanceBenchmark {
     )
   }
 
-  override def runIteration(c: Config): Unit = {
+  override def runIteration(c: Config): BenchmarkResult = {
     blackHole(coder.parallelTranslate(testInput))
+    return new DummyResult()
   }
 }
