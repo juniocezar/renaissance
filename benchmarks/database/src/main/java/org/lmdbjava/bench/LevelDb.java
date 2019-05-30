@@ -37,7 +37,8 @@ public class LevelDb {
 
   // TODO: Consolidate benchmark parameters across the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/27
-  final static int CPU = Runtime.getRuntime().availableProcessors();
+  //// final static int CPU = Runtime.getRuntime().availableProcessors();
+  final static int CPU = 8; //// JINN: Fixed thread count
 
   private static volatile Object out = null;
 

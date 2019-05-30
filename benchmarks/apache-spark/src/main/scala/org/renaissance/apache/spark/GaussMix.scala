@@ -31,7 +31,8 @@ class GaussMix extends RenaissanceBenchmark with SparkUtil {
 
   val COMPONENTS = 10
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  //// val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = 8 //// JINN: fixed thread count
 
   var SIZE = 15000
 

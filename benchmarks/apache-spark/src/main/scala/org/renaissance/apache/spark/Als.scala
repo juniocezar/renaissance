@@ -27,7 +27,8 @@ class Als extends RenaissanceBenchmark with SparkUtil {
 
   var numRatings = 20000
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  //// val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = 8 //// JINN: fixed thread count.
 
   // TODO: Unify handling of scratch directories throughout the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/13

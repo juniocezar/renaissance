@@ -11,7 +11,8 @@ class HistogramSuite extends FunSuite {
   for ((opsPerTest, name, slow) <- List((10000, "10K", false),
                                         (1000000, "1M", true))) {
     for (buckets <- List(1, 30, 10000)) {
-      for (threads <- List(1, 2, 4, 8, 16, 32, 64, 128, 256, 512) if (threads <= 2*Runtime.getRuntime.availableProcessors)) {
+      //// for (threads <- List(1, 2, 4, 8, 16, 32, 64, 128, 256, 512) if (threads <= 2*Runtime.getRuntime.availableProcessors)) {
+      for (threads <- List(1, 2, 4, 8, 16, 32, 64, 128, 256, 512) if (threads <= 2*8)) { // JINN: fixed thread count
         for (useTArray <- List(false, true)) {
           val str = ("" + buckets + " buckets, " + threads + " threads, " +
                   (if (useTArray) "TArray[Int]" else "Array[Ref[Int]]"))

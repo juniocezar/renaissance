@@ -24,7 +24,8 @@ class AnalyticsBenchmark(
 ) {
   private var db: GraphDatabaseService = null
 
-  private val CPU_COUNT = Runtime.getRuntime.availableProcessors
+  //// private val CPU_COUNT = Runtime.getRuntime.availableProcessors
+  private val CPU_COUNT = 8 //// JINN: fixed thread count
 
   private val LONG_QUERY_NUM = longQueryCount.getOrElse(2)
 

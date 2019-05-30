@@ -15,7 +15,8 @@ class ScalaStmBench7 extends RenaissanceBenchmark {
   // TODO: Consolidate benchmark parameters across the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/27
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  //// val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = 8 //// JINN: fixed thread count
 
   override def runIteration(c: Config): Unit = {
     // The following is the description of STMBench7's arguments.

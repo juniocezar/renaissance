@@ -172,7 +172,8 @@ object AkkaActorState {
     getIntegerProp(propertyName) match {
       case Some(i) if i > 0 => i
       case _ => {
-        val byCores = rt.availableProcessors() * 2
+        //// val byCores = rt.availableProcessors() * 2
+        val byCores = 8 * 2 //// JINN: Fixed thread count
         if (byCores > minNumThreads) byCores else minNumThreads
       }
     }

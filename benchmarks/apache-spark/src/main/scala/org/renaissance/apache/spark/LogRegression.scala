@@ -35,7 +35,8 @@ class LogRegression extends RenaissanceBenchmark with SparkUtil {
 
   val CONVERGENCE_TOLERANCE = 0.0
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  //// val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = 8 // JINN: fixed thread count
 
   var numCopies = 400
 

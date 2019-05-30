@@ -25,7 +25,8 @@ object SimpleRandom {
   // p < k/n, or 8/Slots < k/n, or #slots > 8n/k.  If we let k = 1/8, then we
   // get #slots=64*n.
   private val mask = {
-    val min = 64 * Runtime.getRuntime.availableProcessors
+    //// val min = 64 * Runtime.getRuntime.availableProcessors
+    val min = 64 * 8 //// JINN: fixed thread count
     var slots = 1
     while (slots < min) slots *= 2
     slots - 1

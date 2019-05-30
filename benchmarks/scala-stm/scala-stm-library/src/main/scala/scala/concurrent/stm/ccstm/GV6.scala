@@ -24,7 +24,8 @@ private[ccstm] trait GV6 {
 
   private val silentCommitRatioMin = System.getProperty("ccstm.gv6.min", "1").toInt
   private val silentCommitRatioMax =
-    System.getProperty("ccstm.gv6.max", (Runtime.getRuntime.availableProcessors min 16).toString).toInt
+    System.getProperty("ccstm.gv6.max", (8 min 16).toString).toInt // JINN: Fixed thread count
+    //// System.getProperty("ccstm.gv6.max", (Runtime.getRuntime.availableProcessors min 16).toString).toInt
 
   /** The approximate ratio of the number of commits to the number of
    *  increments of `globalVersion`, as in TL2's GV6 scheme.  If
@@ -32,7 +33,8 @@ private[ccstm] trait GV6 {
    *  random number generator.
    */
   private var silentCommitRatio =
-    (Runtime.getRuntime.availableProcessors / 2) max silentCommitRatioMin min silentCommitRatioMax
+         (8 / 2) max silentCommitRatioMin min silentCommitRatioMax
+    //// (Runtime.getRuntime.availableProcessors / 2) max silentCommitRatioMin min silentCommitRatioMax
 
   private var silentCommitCutoff = intRangeFraction(silentCommitRatio)
 
