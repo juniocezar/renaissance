@@ -171,7 +171,7 @@ loadConfigFile() {
 [[ -f "$sbt_opts_file" ]] && set -- $(loadConfigFile "$sbt_opts_file") "$@"
 
 #  Pull in the project-level java config, if it exists.
-[[ -f ".jvmopts" ]] && export JAVA_OPTS="$JAVA_OPTS $(loadConfigFile .jvmopts)"
+[[ -f ".jvmopts" ]] && export JAVA_OPTS="$JAVA_OPTS -cp /home/juniocezar/repositorios/renaissance-fork/external-lib $(loadConfigFile .jvmopts)"
 
 run "$@"
 

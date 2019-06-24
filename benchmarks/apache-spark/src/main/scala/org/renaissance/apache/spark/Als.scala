@@ -25,9 +25,9 @@ class Als extends RenaissanceBenchmark with SparkUtil {
   // TODO: Consolidate benchmark parameters across the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/27
 
-  var numRatings = 20000
+  var numRatings = org.renaissance.BenchmarkInputs.getNumRatings
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = org.renaissance.BenchmarkInputs.getNumThreads
 
   // TODO: Unify handling of scratch directories throughout the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/13

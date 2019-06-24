@@ -14,6 +14,8 @@ public class Launcher {
   public static void main(String args[]) {
     final Logger logger = Logging.getMethodLogger(Launcher.class, "main");
 
+    args = org.renaissance.BenchmarkInputs.parse(args);
+
     try {
       final ClassLoader loader = ModuleLoader.getForGroup("renaissance-harness");
       final Class<?> suiteClass = loader.loadClass("org.renaissance.RenaissanceSuite");
