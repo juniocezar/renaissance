@@ -5,14 +5,18 @@ package org.renaissance;
 import java.util.Vector;
 
 public class BenchmarkInputs {
-	private int numThreads;
-	private int numRatings;
+	private int numThreads; // general
+	private int numRatings; // als
+	private int requestCount; // FinagleChirper
+	private int userCount; // FinagleChirper
 	private static BenchmarkInputs singleton = null;
 	private static boolean enableDebug = true;
 
 	private BenchmarkInputs () {
 		this.numThreads = Runtime.getRuntime().availableProcessors();
 		this.numRatings = 20000;
+		this.requestCount = 1250;
+		this.userCount = 5000;
 	} 
 
 	private static void init() {
@@ -29,9 +33,17 @@ public class BenchmarkInputs {
 			//
 			// assumes the following arg is not the last one in the cmd line
 			if (token.equals("--als-threads")) {	
-				singleton.numThreads = Integer.parseInt(args[++i]);
+				singleton.numThreads = Integer.parseInt(args[++i]);			
 			} else if (token.equals("--als-ratings")) {
 				singleton.numRatings = Integer.parseInt(args[++i]);
+			else if (token.equals("--threads")) {	
+				singleton.numThreads = Integer.parseInt(args[++i]);
+			} else if (token.equals("--finaglechirper-usercount")) {
+				singleton.userCount = Integer.parseInt(args[++i]);
+				debug ("Processing workload with " + singleton.userCount + " users");		
+			} else if (token.equals("--finaglechirper-requestcount")) {				
+				singleton.requestCount = Integer.parseInt(args[++i]);
+				debug ("Processing workload with " + singleton.requestCount + " requests");		
 			} else {
 				vecArgs.add(token);
 			}
@@ -48,6 +60,17 @@ public class BenchmarkInputs {
     }
 
 
+    // ========= getters ========
+
+    public static int getUserCount () {
+    	init();
+    	return singleton.userCount;
+    }
+
+    public static int getRequestCount () {
+    	init();
+    	return singleton.requestCount;
+    }
 
 	public static int getNumThreads () {
 		init();
@@ -57,7 +80,5 @@ public class BenchmarkInputs {
 	public static int getNumRatings () {
 		init();
 		return singleton.numRatings;
-	}
-
-
+	}	
 }

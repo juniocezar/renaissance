@@ -352,13 +352,13 @@ class FinagleChirper extends RenaissanceBenchmark {
   var master: ListeningServer = null
   var masterPort: Int = -1
   var masterService: Service[Request, Response] = null
-  val clientCount = Runtime.getRuntime.availableProcessors
-  val cacheCount = Runtime.getRuntime.availableProcessors
+  val clientCount = org.renaissance.BenchmarkInputs.getNumThreads
+  val cacheCount = org.renaissance.BenchmarkInputs.getNumThreads
   val caches = new mutable.ArrayBuffer[ListeningServer]
   var cachePorts = new mutable.ArrayBuffer[Int]
   val startingFeedSize = 80
-  var requestCount: Int = 1250
-  var userCount: Int = 5000
+  var requestCount: Int = org.renaissance.BenchmarkInputs.getRequestCount
+  var userCount: Int = org.renaissance.BenchmarkInputs.getUserCount
 
   val usernameBases = Seq(
     "johnny",
