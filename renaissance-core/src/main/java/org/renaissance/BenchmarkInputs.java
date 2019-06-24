@@ -36,7 +36,7 @@ public class BenchmarkInputs {
 				singleton.numThreads = Integer.parseInt(args[++i]);			
 			} else if (token.equals("--als-ratings")) {
 				singleton.numRatings = Integer.parseInt(args[++i]);
-			else if (token.equals("--threads")) {	
+			} else if (token.equals("--threads")) {	
 				singleton.numThreads = Integer.parseInt(args[++i]);
 			} else if (token.equals("--finaglechirper-usercount")) {
 				singleton.userCount = Integer.parseInt(args[++i]);
