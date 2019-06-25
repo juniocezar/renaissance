@@ -10,6 +10,7 @@ public class BenchmarkInputs {
 	private int requestCount; // FinagleChirper
 	private int userCount; // FinagleChirper
 	private int numMeals; // Philosophers
+	private int numCopies; // dectree
 	private static BenchmarkInputs singleton = null;
 	private static boolean enableDebug = true;
 
@@ -19,6 +20,7 @@ public class BenchmarkInputs {
 		this.requestCount = 1250;
 		this.userCount = 5000;
 		this.numMeals = 500000;
+		this.numCopies = 100;
 	} 
 
 	private static void init() {
@@ -49,6 +51,9 @@ public class BenchmarkInputs {
 			} else if (token.equals("--philosophers-meals")) {				
 				singleton.numMeals = Integer.parseInt(args[++i]);
 				debug ("Processing workload with " + singleton.numMeals + " meals");					
+			} else if (token.equals("--dectree-copies")) {				
+				singleton.numCopies = Integer.parseInt(args[++i]);
+				debug ("Processing workload with " + singleton.numCopies + " copies");					
 			} else {
 				vecArgs.add(token);
 			}
@@ -90,5 +95,10 @@ public class BenchmarkInputs {
 	public static int getNumMeals () {
 		init();
 		return singleton.numMeals;
+	}
+
+	public static int getNumCopies() {
+		init();
+		return singleton. numCopies;
 	}
 }
