@@ -15,12 +15,12 @@ class Philosophers extends RenaissanceBenchmark {
   // TODO: Consolidate benchmark parameters across the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/27
 
-  private val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  private val THREAD_COUNT = org.renaissance.BenchmarkInputs.getNumThreads
 
   /**
    * Number of meals consumed by each Philosopher thread.
    */
-  private var NUMBER_OF_MEALS = 500000
+  private var NUMBER_OF_MEALS = org.renaissance.BenchmarkInputs.getNumMeals // 500000
 
   override def setUpBeforeAll(c: Config) = {
     if (c.functionalTest) {
