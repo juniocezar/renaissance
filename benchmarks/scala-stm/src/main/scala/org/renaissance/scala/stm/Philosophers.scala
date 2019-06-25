@@ -9,7 +9,8 @@ import org.renaissance.Benchmark._
 @Group("scala-stm")
 @Summary("Solves a variant of the dining philosophers problem using ScalaSTM.")
 @Licenses(Array(License.BSD3))
-@Repetitions(30)
+//@Repetitions(30)
+@Repetitions(10)
 class Philosophers extends RenaissanceBenchmark {
 
   // TODO: Consolidate benchmark parameters across the suite.
