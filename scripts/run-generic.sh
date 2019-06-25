@@ -29,6 +29,16 @@ JAVA="/usr/bin/java" #openJDK 11.0.3
 # OUTPUT CONFIGS
 LOGDIR="logs-${1}"
 
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+function ctrl_c() {
+    echo "Stopping Script"
+    pkill -9 java
+    pkill -9 java
+    exit
+}
+
 
 function buildName {
     rawinput="$1"
@@ -58,9 +68,9 @@ function run {
     for config in $CONFIGURATIONS; do
         for benchmark in $BENCHMARKS; do
             while read input; do
-                output="${LOGDIR}/${benchmark}-${config}"
+                output="${LOGDIR}/${benchmark}_${config}"
                 parsedinput=$( buildName "$input" )
-                command="$TIMEOUT $BINDER $config $JAVA -jar $JAR $benchmark $input $OUTFORMAT ${output}-${parsedinput}.csv $POLICY >> ${output}.txt 2>&1"
+                command="$TIMEOUT $BINDER $config $JAVA -jar $JAR $benchmark $input $OUTFORMAT ${output}_${parsedinput}.csv $POLICY >> ${output}.txt 2>&1"
 
                 echo "Iteration started at $(date)"
                 echo "  command: $command"
