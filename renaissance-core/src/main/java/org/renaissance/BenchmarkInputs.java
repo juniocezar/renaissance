@@ -11,6 +11,9 @@ public class BenchmarkInputs {
 	private int userCount; // FinagleChirper
 	private int numMeals; // Philosophers
 	private int numCopies; // dectree
+	private int chromoCount; // future-genetic
+	private int genCount; // future-genetic
+
 	private static BenchmarkInputs singleton = null;
 	private static boolean enableDebug = true;
 
@@ -21,6 +24,8 @@ public class BenchmarkInputs {
 		this.userCount = 5000;
 		this.numMeals = 500000;
 		this.numCopies = 100;
+		this.genCount = 5000;
+		this.chromoCount = 50;
 	} 
 
 	private static void init() {
@@ -44,16 +49,22 @@ public class BenchmarkInputs {
 				singleton.numThreads = Integer.parseInt(args[++i]);
 			} else if (token.equals("--finaglechirper-usercount")) {
 				singleton.userCount = Integer.parseInt(args[++i]);
-				debug ("Processing workload with " + singleton.userCount + " users");		
+					debug ("Processing workload with " + singleton.userCount + " users");		
 			} else if (token.equals("--finaglechirper-requestcount")) {				
 				singleton.requestCount = Integer.parseInt(args[++i]);
-				debug ("Processing workload with " + singleton.requestCount + " requests");		
+					debug ("Processing workload with " + singleton.requestCount + " requests");		
 			} else if (token.equals("--philosophers-meals")) {				
 				singleton.numMeals = Integer.parseInt(args[++i]);
-				debug ("Processing workload with " + singleton.numMeals + " meals");					
+					debug ("Processing workload with " + singleton.numMeals + " meals");					
 			} else if (token.equals("--dectree-copies")) {				
 				singleton.numCopies = Integer.parseInt(args[++i]);
-				debug ("Processing workload with " + singleton.numCopies + " copies");					
+					debug ("Processing workload with " + singleton.numCopies + " copies");					
+			} else if (token.equals("--futuregenetic-generations")) {				
+				singleton.genCount = Integer.parseInt(args[++i]);
+					debug ("Processing workload with " + singleton.genCount + " generations");					
+			} else if (token.equals("--futuregenetic-chromosomes")) {				
+				singleton.chromoCount = Integer.parseInt(args[++i]);
+					debug ("Processing workload with " + singleton.chromoCount + " chromosomes");					
 			} else {
 				vecArgs.add(token);
 			}
@@ -97,8 +108,18 @@ public class BenchmarkInputs {
 		return singleton.numMeals;
 	}
 
-	public static int getNumCopies() {
+	public static int getNumCopies () {
 		init();
-		return singleton. numCopies;
+		return singleton.numCopies;
+	}
+
+	public static int getChromoCount () {
+		init();
+		return singleton.chromoCount;
+	}
+
+	public static int getGenCount () {
+		init();
+		return singleton.genCount;
 	}
 }

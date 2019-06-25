@@ -1,0 +1,9 @@
+--threads 2 --futuregenetic-generations 50 --futuregenetic-chromosomes 100
+--threads 4 --futuregenetic-generations 50 --futuregenetic-chromosomes 100
+--threads 8 --futuregenetic-generations 50 --futuregenetic-chromosomes 100
+--threads 2 --futuregenetic-generations 500 --futuregenetic-chromosomes 50
+--threads 4 --futuregenetic-generations 500 --futuregenetic-chromosomes 50
+--threads 8 --futuregenetic-generations 500 --futuregenetic-chromosomes 50
+--threads 2 --futuregenetic-generations 5000 --futuregenetic-chromosomes 25
+--threads 4 --futuregenetic-generations 5000 --futuregenetic-chromosomes 25
+--threads 8 --futuregenetic-generations 5000 --futuregenetic-chromosomes 25

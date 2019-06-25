@@ -15,7 +15,7 @@ class FutureGenetic extends RenaissanceBenchmark {
   // TODO: Consolidate benchmark parameters across the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/27
 
-  val threadCount = 2
+  val threadCount = org.renaissance.BenchmarkInputs.getNumThreads
 
   val randomSeed = 7
 
@@ -25,9 +25,9 @@ class FutureGenetic extends RenaissanceBenchmark {
 
   var geneCount = 200
 
-  var chromosomeCount = 50
+  var chromosomeCount = org.renaissance.BenchmarkInputs.getChromoCount // 50
 
-  var generationCount = 5000
+  var generationCount = org.renaissance.BenchmarkInputs.getGenCount //5000
 
   var benchmark: JavaJenetics = null
 
