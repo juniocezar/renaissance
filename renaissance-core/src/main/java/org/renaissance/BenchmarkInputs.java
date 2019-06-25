@@ -48,7 +48,7 @@ public class BenchmarkInputs {
 				debug ("Processing workload with " + singleton.requestCount + " requests");		
 			} else if (token.equals("--philosophers-meals")) {				
 				singleton.numMeals = Integer.parseInt(args[++i]);
-				debug ("Processing workload with " + singleton.requestCount + " meals");					
+				debug ("Processing workload with " + singleton.numMeals + " meals");					
 			} else {
 				vecArgs.add(token);
 			}
