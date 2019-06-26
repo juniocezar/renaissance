@@ -13,6 +13,7 @@ public class BenchmarkInputs {
 	private int numCopies; // dectree
 	private int chromoCount; // future-genetic
 	private int genCount; // future-genetic
+	private int size; // chisquare
 
 	private static BenchmarkInputs singleton = null;
 	private static boolean enableDebug = true;
@@ -26,6 +27,7 @@ public class BenchmarkInputs {
 		this.numCopies = 100;
 		this.genCount = 5000;
 		this.chromoCount = 50;
+		this.size = 1500000;
 	} 
 
 	private static void init() {
@@ -65,6 +67,9 @@ public class BenchmarkInputs {
 			} else if (token.equals("--futuregenetic-chromosomes")) {				
 				singleton.chromoCount = Integer.parseInt(args[++i]);
 					debug ("Processing workload with " + singleton.chromoCount + " chromosomes");					
+			} else if (token.equals("--chisquare")) {				
+				singleton.size = Integer.parseInt(args[++i]);
+					debug ("Processing workload with " + singleton.size + " chisquare size");					
 			} else {
 				vecArgs.add(token);
 			}
@@ -121,5 +126,10 @@ public class BenchmarkInputs {
 	public static int getGenCount () {
 		init();
 		return singleton.genCount;
+	}
+
+	public static int getSize() {
+		init();
+		return singleton.size;
 	}
 }

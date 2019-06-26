@@ -30,9 +30,9 @@ class ChiSquare extends RenaissanceBenchmark with SparkUtil {
 
   val COMPONENTS = 5
 
-  var SIZE = 1500000
+  var SIZE = org.renaissance.BenchmarkInputs.getSize // 1500000
 
-  val THREAD_COUNT = Runtime.getRuntime.availableProcessors
+  val THREAD_COUNT = org.renaissance.BenchmarkInputs.getNumThreads
 
   // TODO: Unify handling of scratch directories throughout the suite.
   //  See: https://github.com/renaissance-benchmarks/renaissance/issues/13
