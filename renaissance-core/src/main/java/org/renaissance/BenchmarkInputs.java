@@ -9,6 +9,8 @@ public class BenchmarkInputs {
 	private int numRatings; // als
 	private int requestCount; // FinagleChirper
 	private int userCount; // FinagleChirper
+	private int numRequests; // FinagleHttp
+	private int numClients; // FinagleHttp
 	private int numMeals; // Philosophers
 	private int numCopies; // dectree
 	private int chromoCount; // future-genetic
@@ -28,6 +30,8 @@ public class BenchmarkInputs {
 		this.genCount = 5000;
 		this.chromoCount = 50;
 		this.size = 1500000;
+		this.numRequests = 2000000;
+		this.numClients = 20;
 	} 
 
 	private static void init() {
@@ -70,6 +74,14 @@ public class BenchmarkInputs {
 			} else if (token.equals("--chisquare")) {				
 				singleton.size = Integer.parseInt(args[++i]);
 					debug ("Processing workload with " + singleton.size + " chisquare size");					
+
+			} else if (token.equals("--finaglehttp-requests")) {				
+				singleton.numRequests = Integer.parseInt(args[++i]);
+					debug ("Processing workload with " + singleton.numRequests + " requests");
+			} else if (token.equals("--finaglehttp-clients")) {				
+				singleton.numClients = Integer.parseInt(args[++i]);
+					debug ("Processing workload with " + singleton.numClients + " clients");
+
 			} else {
 				vecArgs.add(token);
 			}
@@ -131,5 +143,15 @@ public class BenchmarkInputs {
 	public static int getSize() {
 		init();
 		return singleton.size;
+	}
+
+	public static int getNumClients () {
+		init();
+		return singleton.numClients;
+	}
+
+	public static int getNumRequests () {
+		init();
+		return singleton.numRequests;
 	}
 }

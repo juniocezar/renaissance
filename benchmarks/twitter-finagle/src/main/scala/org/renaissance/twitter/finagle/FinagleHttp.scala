@@ -34,11 +34,11 @@ class FinagleHttp extends RenaissanceBenchmark {
 
   /** Number of requests sent during the execution of the benchmark.
    */
-  var NUM_REQUESTS = 2000000
+  var NUM_REQUESTS = org.renaissance.BenchmarkInputs.getNumRequests // 2000000
 
   /** Number of clients that are simultaneously sending the requests.
    */
-  var NUM_CLIENTS = 20
+  var NUM_CLIENTS = org.renaissance.BenchmarkInputs.getNumClients // 20
 
   var server: ListeningServer = null
 
