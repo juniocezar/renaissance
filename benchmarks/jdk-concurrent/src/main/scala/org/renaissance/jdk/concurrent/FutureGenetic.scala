@@ -31,7 +31,7 @@ class FutureGenetic extends RenaissanceBenchmark {
 
   var benchmark: JavaJenetics = null
 
-  override def setUpBeforeAll(c: Config): Unit = {
+  override def setUpBeforeAll(c:  Config): Unit = {
     if (c.functionalTest) {
       chromosomeCount = 10
       generationCount = 200
@@ -53,6 +53,8 @@ class FutureGenetic extends RenaissanceBenchmark {
   }
 
   override def runIteration(c: Config): Unit = {
+    val ar: Array[Double] = Array(threadCount, chromosomeCount, generationCount)
+    org.renaissance.PredictorFuture.predict(ar)
     blackHole(benchmark.runRepetition())
   }
 }
