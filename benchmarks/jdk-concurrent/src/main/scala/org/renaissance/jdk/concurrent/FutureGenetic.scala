@@ -53,8 +53,10 @@ class FutureGenetic extends RenaissanceBenchmark {
   }
 
   override def runIteration(c: Config): Unit = {
-    val ar: Array[Double] = Array(threadCount, chromosomeCount, generationCount)
+    // jinn -- code
+    val ar: Array[Double] = Array(threadCount, generationCount, chromosomeCount)
     org.renaissance.PredictorFuture.predict(ar)
+    //
     blackHole(benchmark.runRepetition())
   }
 }
